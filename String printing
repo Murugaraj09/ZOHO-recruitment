@@ -1,0 +1,40 @@
+*********************** QUESTION ***************************
+Input : W E L C O M E
+Explanation : start with middle letter from first line. Next line two letter from middle . Continue still you print all letters in last line. Then start with the first letter and continue for the remaining letters. 
+  
+output :  
+            C
+          C O
+        C O M
+      C O M E
+    C O M E W
+  C O M E W E
+C O M E W E L
+
+*********************** CODE ***************************
+
+string = input('Enter an ODD count string : ')
+string_list = list(string)
+length = len(string_list)
+
+# Checks whether the input string as ODD char length
+if length % 2 != 0:
+
+    # Changes the input string to required format
+    for i in range(length // 2):
+        first_val = string_list[0]
+        string_list.append(first_val)
+        string_list.remove(first_val)
+
+    # Prints the formatted string
+    for i in range(length):
+        char = ''
+        j = 0
+        while j <= i:
+            char += string_list[j]
+            j += 1
+        content = (' ' * (length - i)) + char
+        print(content)
+
+else:
+    print('String is invalid')
